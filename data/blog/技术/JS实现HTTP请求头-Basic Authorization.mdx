@@ -7,12 +7,13 @@ summary:
 ---
 HTTP 协议中的  **Authorization**  请求消息头含有服务器用于验证用户代理身份的凭证，通常会在服务器返回[401](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/401) Unauthorized  状态码以及[WWW-Authenticate](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/WWW-Authenticate)  消息头之后在后续请求中发送此消息头。
 
-     Authorization:Basic c2NhcjoxMjM0NTY=
-     Authorization: <type> <credentials>
-     //(c2NhcjoxMjM0NTY=) 是(scar:123456)的base64编码
+```header
+    Authorization:Basic c2NhcjoxMjM0NTY=
+    Authorization: <type> <credentials> //(c2NhcjoxMjM0NTY=) 是(scar:123456)的base64编码
+```
 
 格式是 Basic 字符串+空格+**用户名:密码**的 Base64 编码。
-将凭证<credentials>部分进行 Base64 编码，然后再拼接字符串'Basic '，就可以生成基础验证方案。
+将凭证`<credentials>`部分进行 Base64 编码，然后再拼接字符串'Basic '，就可以生成基础验证方案。
 因为 DOMString  是 16 位编码的字符串，如果有字符超出了 8 位 ASCII 编码的字符范围时，在大多数的浏览器中对 Unicode 字符串调用  window.btoa 将会造成一个  Character Out Of Range  的异常。
 所以下列方法将 UTF-16 的  DOMStrin  转码为 UTF-8 的字符数组然后再编码。
 

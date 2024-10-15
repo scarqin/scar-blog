@@ -30,9 +30,9 @@ https://stackoverflow.com/questions/10994324/chrome-extension-content-script-re-
 ![image.png](https://images.scar.site/WEBRESOURCEb514a6a2d210eb1366574d63fd14b361.png)
 
 ### async和defer都可以让JavaScript异步加载
-无论是内联的module <script>还是外链的<script>，都支持async这个异步标识属性。这个有别于传统的<script>，也就是传统<script>仅外链JS才支持async，内联JS直接忽略async。
+无论是内联的module `<script>`还是外链的`<script>`，都支持async这个异步标识属性。这个有别于传统的`<script>`，也就是传统`<script>`仅外链JS才支持async，内联JS直接忽略async。
 
-async和defer都可以让JavaScript异步加载，区别在于defer保证执行顺序，而async谁先加载好谁先执行。这个特性表现在type="module"的<script>元素这里同样适用。
+async和defer都可以让JavaScript异步加载，区别在于defer保证执行顺序，而async谁先加载好谁先执行。这个特性表现在type="module"的`<script>`元素这里同样适用。
 
 例如下面例子：
 ```javascript
