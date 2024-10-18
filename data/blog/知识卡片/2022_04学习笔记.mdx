@@ -1,0 +1,59 @@
+---
+title: 2022_04学习笔记
+date: '2022-04-01 00:00'
+tags: ["知识卡片"]
+draft: false
+summary: 
+---
+# [DFS、BFS 搜索思想](https://zhuanlan.zhihu.com/p/24986203)
+
+**DFS（Deep First Search）深度优先搜索。**
+
+**BFS（Breath First Search）广度优先搜索。**
+
+对于这两个搜索方法，其实我们是可以轻松的看出来，他们有许多差异与许多相同点的。
+
+**1.数据结构上的运用**
+
+DFS 用递归的形式，用到了栈结构，先进后出。
+
+BFS 选取状态用队列的形式，先进先出。
+
+**2.复杂度**
+
+DFS 的复杂度与BFS的复杂度大体一致，不同之处在于遍历的方式与对于问题的解决出发点不同，DFS 适合目标明确，而 BFS 适合大范围的寻找。
+
+**3.思想**
+
+思想上来说这两种方法都是穷竭列举所有的情况。
+
+# Pros vs Cons
+
+赞成者 / 反对者，平时我们写中文可能会写：
+
+优势：
+
+劣势：
+
+那么写英文的时候可以翻译成：
+
+pros:
+
+cons:
+
+# **Socket**.IO
+
+**Socket**.**IO** 是一个面向实时 web 应用的 JavaScript 库。 它使得服务器和客户端之间实时双向的通信成为可能。 他有两个部分：在浏览器中运行的客户端库，和一个面向 Node.js 的服务端库。 两者有着几乎一样的 API。
+
+# ShadowRealm API
+
+沙箱 Javascript 代码，允许 Javascript 在运行时创建多个高度隔离的 JS 运行环境，每个 realm 具有独立的全局对象和内建对象
+
+# ShdowDom
+
+针对  Dom 的沙箱机制
+
+# [What is the difference between decodeURIComponent and decodeURI?](https://stackoverflow.com/questions/747641/what-is-the-difference-between-decodeuricomponent-and-decodeuri)
+
+- `encodeURI` 作用在整个 URI 上，偏向于去修复 URL 中不符合规则的分隔符
+- `encodeURIComponent` 用于 .. 以及 .. URI 组件，即位于分隔符 (; / ? : @ & = + $ , #) 之间的任何部分。

@@ -1,0 +1,146 @@
+---
+title: 2024_08 学习笔记
+date: '2024-07-28 22:59'
+tags: ["知识卡片"]
+draft: false
+summary: 
+---
+# Next.js 防跳转
+
+1. 使用 next/navigation link
+
+2. 配置组件使用的路由方法：https://nextui.org/docs/guide/routing
+
+3. Button 和 Link 组件搭配的用法
+
+   左边的写法会导致页面刷新，右边的不会
+
+   ![image-20240804200741888](https://images.scar.site/image-20240804200741888.png)
+
+> https://github.com/nextui-org/nextui/issues/1993#issuecomment-1821998962
+
+社区推荐的方案是 `as`搭配`href`：
+
+```html
+<Button
+    as={Link}
+    href="/auth/login?user_type=jobseeker"
+    color="primary"
+    type="button"
+    radius="sm"
+>
+    Login
+</Button>
+```
+
+
+
+# [How Google handles JavaScript throughout the indexing process](https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process)
+
+一篇关于谷歌如何索引 Javascript Heavy 网站的全面介绍
+
+![3d41fc35-df4f-4a27-9e32-327a4262761d](https://images.scar.site/3d41fc35-df4f-4a27-9e32-327a4262761d.png)
+
+## 观点
+
+1. **Google 的渲染能力逐渐完善**：Google 从最初无法索引 JavaScript 生成内容，发展到现在可以使用最新版本的 Chrome 进行渲染，支持现代 JavaScript 特性。14-17
+2. **Google 可以渲染和索引 JavaScript 内容**：实验数据表明，Google 可以成功渲染和索引包括动态加载和流式传输内容在内的 JavaScript 内容。27
+3. **Google 对 JavaScript 页面的处理与静态 HTML 页面无异**：Google 不会对 JavaScript 密集型页面作出特别处理，它对所有 HTML 页面都进行渲染。28
+4. **渲染队列和时间的影响有限**：虽然渲染队列存在，但大多数页面在短时间内就可以完成渲染。30-37
+5. **JavaScript-heavy sites 的页面发现速度不会因 JavaScript 而变慢**：Google 可以通过静态 HTML 链接、客户端渲染内容以及非渲染的 JavaScript 有效负载中的链接发现新页面。38-44
+6. **SEO 优化建议**：开发者应该利用 JavaScript 框架提高用户和开发者体验，确保关键 SEO 元素在初始 HTML 响应中可用，并且应该优化应用性能，确保关键资源对 Googlebot 可访问。40-49
+7. **性能对 SEO 和用户体验的重要性**：性能不仅是 Google 的排名因素之一，还与用户体验直接相关。提高页面加载速度可以降低用户跳出率，从而提高页面的相关性。45-46
+
+以上内容旨在帮助 SEO 专家和开发者更好地理解 Google 对 JavaScript 的处理，以及如何优化 JavaScript-heavy 网站以提高搜索引擎排名和用户体验。8-63
+
+https://twitter.com/daluoseo/status/1795930919448310170
+
+# [设计师，如何建立自己的素材库？](https://mp.weixin.qq.com/s/v7FXCTup9Oi_hc-SYVym4w)
+
+最近想要开始了解交互/设计类的知识，不会刻意练习的学习，只是培养设计的触感。
+
+工欲善其事必先利其器，先掌握学习的技巧，边积累边培养美感。
+
+就像文中所说：
+
+> 灵感是非常重要的东西，而灵感不会凭空迸发出来，这个时候就需要设计师去大量的浏览素材和案例，来打开思路。
+
+## 为什么要建立素材库
+
+设计师建立自己的资料库，是为了通过量的积累，找到规律，提升能力，并且在这个过程中，提高审美和见识。
+
+> 扑哧，有被冒犯到
+>
+> ![](https://images.scar.site/image-20240820225659151.png)
+
+我的整理目标肯定是提高审美了，不至于在做产品的时候捉襟见肘看到丑东西
+
+![Image](https://mmbiz.qpic.cn/mmbiz_jpg/TqLrKs68Lgc16OKAJ91cb26MF2V0RiaQGJkkrFqiaeUfVYV1exVicDfxwFjArSJfVfXKxQuG7NqGBKFXiavotyyHmw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+## 收集素材的方法 - 以理论为单位的收集
+
+![Image](https://images.scar.site/640)
+
+# [12 Best JavaScript Animation Libraries to Supercharge Your Web Projects in 2024](https://dev.to/vyan/12-best-javascript-animation-libraries-to-supercharge-your-web-projects-in-2024-21ka)
+
+# [paywallscreens](https://www.paywallscreens.com/)
+
+记录排名前 8k 的手机 APP 付费页
+
+# [Evading JavaScript Anti-Debugging Techniques](https://www.nullpt.rs/evading-anti-debugging-techniques)
+
+有意思的解决方案，改变浏览器关键词来实现需求
+
+# [DAGOR - 微信解决服务过载的方式](https://arxiv.org/pdf/1806.04075)
+
+1. **传统的过载控制方法不适用于现代微服务架构**：随着服务的数量和复杂性增加，传统的过载控制方法，如简单的请求排队或基于全局入口点的监控，变得不够灵活和有效。
+2. **微服务架构需要一种去耦的过载控制机制**：DAGOR 设计的核心目标之一是实现服务无关性，即过载控制应该独立于服务的业务逻辑，以便更好地适应服务的快速变化和迭代。
+3. **过载控制应该是独立但协作的**：每个微服务都应该独立监控和控制自己的负载，同时与其他服务协作，以处理如后续过载等复杂情况。
+4. **有效的过载控制应该是高效和公平的**：DAGOR 通过优先级分配和适应性接入控制确保在过载情况下，系统资源得到有效利用，并且对于不同的服务请求保持公平性。
+5. **实验结果表明 DAGOR 在实际应用中具有高效的过载控制能力**：DAGOR 能够在微信后端系统中有效地应对高负载情况，保持高服务成功率，并在过载控制过程中保持公平性。
+
+[Javascript 动画库](https://dev.to/vyan/12-best-javascript-animation-libraries-to-supercharge-your-web-projects-in-2024-21ka)
+
+# [Discover Exploding Topics](https://explodingtopics.com/beauty-topics)
+
+追踪趋势的网站
+
+# [建站使用子路径还是子路由？](https://www.semrush.com/blog/subdomain-vs-subdirectory/)
+
+文章讨论了 SEO 社区对于子域名和子目录影响的传统观点。一些 SEO 专家认为子域名可能不会充分利用主域名积累的反向链接，因为谷歌将子域名视为独立网站，需要单独为它们建立反向链接。而子目录则被认为是主域名的一部分，能够更好地受益于主域名的链接权重分配。此外，子目录的管理更为简单，有助于避免重复内容和内部链接错误，且能更容易地追踪网站数据。
+
+
+
+文章随后引用了谷歌的约翰・莫勒（John Mueller）的观点，他表示谷歌搜索对子域名和子目录的处理是相同的，没有正面或负面的排名差异。
+
+
+
+如何判断选择哪个情况优先考虑网站作用：
+
+1. 选择子域名的情况包括：国际化运营、测试环境和独特设计与功能需求。
+
+2. 选择子目录的情况包括：简化网站管理和一致的品牌形象。
+
+   
+
+文章指出，通过适当的内部链接，可以使谷歌更好地识别子域名与主域名之间的关系，从而有助于分发链接权重。
+
+# [eGUI - 一个 Rust 编写的 UI 库](https://github.com/emilk/egui)
+
+egui 是一个用 Rust 编写的开源图形用户界面（GUI）库，旨在为开发者提供一个高效、易用的工具来构建桌面和 Web 应用程序。它支持即时模式（immediate mode），意味着每一帧都重新绘制界面，这使得它在处理动态变化的用户界面时表现优异。
+
+## egui 的主要功能
+
+1. **高性能**：egui 利用 Rust 的内存安全特性和 WebAssembly 的高效性，提供接近原生应用的速度和响应能力。
+2. **灵活的布局系统**：它提供了自动布局功能，开发者无需手动计算每个元素的位置，简化了复杂界面的创建过程。
+3. **简洁的 API**：egui 的 API 设计直观，易于上手，适合新手和经验丰富的开发者。
+4. **跨平台支持**：可以在桌面和 Web 环境中使用，适合多种应用场景。
+
+## 适合的应用场景
+
+- **桌面应用开发**：使用 Rust 和 egui 开发跨平台的桌面应用，享受高性能和良好的用户体验。
+- **Web 渲染**：利用 WebAssembly 在 Web 端展现丰富的交互式 UI，适合数据可视化、配置工具等场景。
+- **实时 3D 渲染**：egui 可以作为在线 3D 编辑器或可视化工具的界面层，支持实时交互。
+- **数据可视化**：适合创建可交互的数据图表和仪表盘，允许用户动态探索数据。
+- **游戏开发**：可以用于游戏中的设置菜单、控制面板等界面设计。
+- **教学与学习**：为学习 Rust 和 GUI 开发的初学者提供易于理解的教程和示例，帮助快速上手。

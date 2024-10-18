@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: '秦一碎碎念',
+  title: '秦一流浪记',
   author: 'ScarQin',
   headerTitle: '秦一',
-  description: '一名程序员，创造黑客与画家的人生',
+  description: '创造黑客与画家的人生',
   language: 'zh-cn',
   theme: 'system', // system, dark or light
   siteUrl: 'https://scar.site/',
